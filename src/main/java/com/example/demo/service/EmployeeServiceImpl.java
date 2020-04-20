@@ -39,5 +39,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return employeeRepository.findEmployeesByNameContaining(name);
     }
 
+    @Override
+    public Iterable<Employee> findByNameQuery(String name) {
+        return employeeRepository.findEmployeesUseQuery(name);
+    }
+
 
 }

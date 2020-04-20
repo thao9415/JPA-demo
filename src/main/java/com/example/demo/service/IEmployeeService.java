@@ -14,4 +14,5 @@ public interface IEmployeeService {
     void delete(int id);
 
     Iterable<Employee> findByName(String name);
+    Iterable<Employee> findByNameQuery(String name);
 }
