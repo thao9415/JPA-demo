@@ -67,4 +67,21 @@ public class EmployeeRestAPI {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @PostMapping("/employee/search-by-name")
+    public ResponseEntity<?> findByName(@RequestBody Employee employee) {
+       String name = employee.getName();
+        if (name == "" || name == null) {
+            List<Employee> employeeList = (List<Employee>) employeeService.findAll();
+            if (employeeList.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(employeeList, HttpStatus.OK);
+        }
+        List<Employee> employeeList = (List<Employee>) employeeService.findByName(name);
+        if (employeeList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(employeeList, HttpStatus.OK);
+    }
 }

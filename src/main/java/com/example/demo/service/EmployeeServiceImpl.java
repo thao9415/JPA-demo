@@ -34,4 +34,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         employeeRepository.deleteById(id);
     }
 
+    @Override
+    public Iterable<Employee> findByName(String name) {
+        return employeeRepository.findEmployeesByNameContaining(name);
+    }
+
+
 }

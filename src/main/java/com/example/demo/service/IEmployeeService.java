@@ -12,4 +12,6 @@ public interface IEmployeeService {
     Employee save(Employee employee);
 
     void delete(int id);
+
+    Iterable<Employee> findByName(String name);
 }

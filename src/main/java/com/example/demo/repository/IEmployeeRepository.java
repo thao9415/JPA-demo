@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IEmployeeRepository extends PagingAndSortingRepository<Employee, Integer> {
+    Iterable<Employee> findEmployeesByNameContaining(String employee_name);
 }
